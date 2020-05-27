@@ -1,0 +1,45 @@
+<header>
+    <h1>Add Media to watch</h1>
+</header>
+<form [formGroup]="form"
+    (ngSubmit)="onSubmit(form.value)">
+    <div class="form-group">
+        <label for="inputMediaName">Name</label>
+        <input type="text" class="form-control" id="inputMediaName" placeholder="Enter name of Media" formControlName="name" required>
+        <div *ngIf="form.get('name').hasError('pattern')" class="error">
+            Name has a invalid characters
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+        <label for="inputMedium">Medium</label>
+        <select id="inputMedium" class="form-control" formControlName="medium" required>
+            <option value="" selected disabled>Select Medium</option>
+            <option *ngFor="let medium of lookupLists.mediums" [value]="medium"> {{ medium }} </option>
+        </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputcategory">Category</label>
+            <select id="inputcategory" class="form-control" formControlName="category" required>
+                <option value="" selected disabled>Select Category</option>
+                <option *ngFor="let category of lookupLists.categories" [value]="category"> {{ category }} </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputAddress">Year</label>
+            <input type="number" class="form-control" id="inputYear" placeholder="yyyy" formControlName="year" required>
+            <div *ngIf="form.get('year').hasError('year')" class="error">
+                Value must be between 1900 and 2100
+            </div>
+            <!-- <div *ngIf="form.get('year').errors as yearErrors" class="error">
+                Value must be between {{ yearErrors.year.min }} and {{ yearErrors.year.max }}
+            </div> -->
+        </div>
+    </div>
+        
+    <button type="submit" class="btn btn-primary">Add Media</button>
+</form>

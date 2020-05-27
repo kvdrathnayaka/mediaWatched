@@ -1,0 +1,22 @@
+<h2> {{ mediaItem.name | uppercase}} </h2>
+<div>Wateched on {{ mediaItem.watchedOn | date}} </div>
+<div> {{ mediaItem.category }} </div>
+<div> {{ mediaItem.year }} </div>
+<div class="tools">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button mat-icon-button (click)="toggleSelected()">
+            <mat-icon *ngIf="selected">
+              favorite
+            </mat-icon>
+            <mat-icon *ngIf="!selected">
+              favorite_border
+            </mat-icon>
+        </button>
+        <a (click)="onDelete()" class="delete">
+            <button type="button" class="btn btn-danger">Remove</button>
+        </a>
+        <a class="details">
+            <button type="button" class="btn btn-success">Watch</button>
+        </a>
+    </div>
+</div>
