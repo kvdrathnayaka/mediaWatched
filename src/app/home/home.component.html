@@ -1,7 +1,24 @@
 <section>
     <header>
-        <h1>Media Watched List</h1>
-        <p class="description">Keeping track of the media I want to watch.</p>
+        <h1 class="text-center text-uppercase font-weight-bold font-italic">Media Watched List</h1>
+        <p class="text-center">Keeping track of the media I want to watch.</p>
     </header>
-    <app-media-item-list></app-media-item-list>
+    <div class="row">
+        <div class="col">
+            <!-- <nav class="nav flex-column">
+                <a class="nav-link" routerLinnk="/">All</a>
+                <a class="nav-link" routerLinnk="/Movie">Movie</a>
+                <a class="nav-link" routerLinnk="/Series">Series</a>
+            </nav> -->
+        </div>
+        <div class="col-10">
+            <app-media-item-list></app-media-item-list>
+        </div>
+        <div class="col">
+            <!-- <a routerLink="/add">
+                <button type="button" class="btn btn-primary">Add Media</button>
+            </a> -->
+        </div>
+    </div>
+    
 </section>

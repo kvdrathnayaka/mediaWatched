@@ -16,6 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoryListPipe } from './category-list.pipe';
 import { lookupLists, lookupListToken } from './providers';
+import { HttpClientModule } from '@angular/common/http';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { lookupLists, lookupListToken } from './providers';
     CommonModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [
     { provide: lookupListToken, useValue: lookupLists }
