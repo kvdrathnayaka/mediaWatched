@@ -10,6 +10,8 @@ import { lookupListToken } from '../providers';
 })
 export class MediaItemFormComponent implements OnInit {
   form: FormGroup;
+  minYear = 1900
+  maxYear = 2100
 
   constructor(private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
@@ -23,8 +25,13 @@ export class MediaItemFormComponent implements OnInit {
       ])),
       medium: this.formBuilder.control(''),
       category: this.formBuilder.control(''),
-      year: this.formBuilder.control('', this.yearValidator)
+      year: this.formBuilder.control('', [
+        Validators.max(this.maxYear),
+        Validators.min(this.minYear)
+      ]),
+      description: this.formBuilder.control('')
     });
+    console.log(this.form.get('year'));
   }
 
   yearValidator(control: FormControl){
@@ -37,7 +44,8 @@ export class MediaItemFormComponent implements OnInit {
     else{
       return {
         min: minYear,
-        max: maxYear
+        max: maxYear,
+        // console.log(min , "  " , max);
       };
     }
   }

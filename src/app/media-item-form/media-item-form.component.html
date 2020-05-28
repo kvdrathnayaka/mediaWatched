@@ -1,45 +1,61 @@
 <header>
-    <h1>Add Media to watch</h1>
+    <div class="align-middle">
+        <h1 class="text-center text-uppercase font-weight-bold font-italic">Add Media to watch</h1>
+    </div>
 </header>
-<form [formGroup]="form"
-    (ngSubmit)="onSubmit(form.value)">
-    <div class="form-group">
-        <label for="inputMediaName">Name</label>
-        <input type="text" class="form-control" id="inputMediaName" placeholder="Enter name of Media" formControlName="name" required>
-        <div *ngIf="form.get('name').hasError('pattern')" class="error">
-            Name has a invalid characters
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-        <label for="inputMedium">Medium</label>
-        <select id="inputMedium" class="form-control" formControlName="medium" required>
-            <option value="" selected disabled>Select Medium</option>
-            <option *ngFor="let medium of lookupLists.mediums" [value]="medium"> {{ medium }} </option>
-        </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="inputcategory">Category</label>
-            <select id="inputcategory" class="form-control" formControlName="category" required>
-                <option value="" selected disabled>Select Category</option>
-                <option *ngFor="let category of lookupLists.categories" [value]="category"> {{ category }} </option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="inputAddress">Year</label>
-            <input type="number" class="form-control" id="inputYear" placeholder="yyyy" formControlName="year" required>
-            <div *ngIf="form.get('year').hasError('year')" class="error">
-                Value must be between 1900 and 2100
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <form [formGroup]="form"
+            (ngSubmit)="onSubmit(form.value)">
+            <div class="form-group">
+                <label for="inputMediaName">Name</label>
+                <input type="text" class="form-control" id="inputMediaName" placeholder="Enter name of Media" formControlName="name" required>
+                <div *ngIf="form.get('name').hasError('pattern')" class="error">
+                    Name has a invalid characters
+                </div>
             </div>
-            <!-- <div *ngIf="form.get('year').errors as yearErrors" class="error">
-                Value must be between {{ yearErrors.year.min }} and {{ yearErrors.year.max }}
-            </div> -->
-        </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                <label for="inputMedium">Medium</label>
+                <select id="inputMedium" class="form-control" formControlName="medium" required>
+                    <option value="" selected disabled>Select Medium</option>
+                    <option *ngFor="let medium of lookupLists.mediums" [value]="medium"> {{ medium }} </option>
+                </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputcategory">Category</label>
+                    <select id="inputcategory" class="form-control" formControlName="category" required>
+                        <option value="" selected disabled>Select Category</option>
+                        <option *ngFor="let category of lookupLists.categories" [value]="category"> {{ category }} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputAddress">Year</label>
+                    <input type="number" class="form-control" id="inputYear" [min]="1900" [max]="2100" minlength="4" placeholder="yyyy" mdInput formControlName="year" required>
+                    <div *ngIf="form.get('year').errors?.min" class="error">
+                        Value must be greater than {{ minYear }}
+                    </div>
+                    <div *ngIf="form.get('year').errors?.max" class="error">
+                        Value must be greater than {{ maxYear }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Description</label>
+                <textarea class="form-control" id="inputDescription" rows="3"
+                    placeholder="Enter Media description"
+                    formControlName="description"
+                    required>
+                </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Media</button>
+            <button type="button" class="btn btn-success float-right" routerLink="/">Media Items</button>
+        </form>
     </div>
-        
-    <button type="submit" class="btn btn-primary">Add Media</button>
-</form>
+    <div class="col"></div>
+  </div>
