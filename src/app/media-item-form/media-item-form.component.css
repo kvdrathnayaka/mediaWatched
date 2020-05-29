@@ -12,7 +12,6 @@ header{
     margin: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: rgb(198, 248, 248);
 }
 
 .btn-secondary{
@@ -20,5 +19,13 @@ header{
 }
 
 input{
+    background-color: rgb(204, 250, 200);
+}
+
+select{
+    background-color: rgb(204, 250, 200);
+}
+
+textarea{
     background-color: rgb(204, 250, 200);
 }

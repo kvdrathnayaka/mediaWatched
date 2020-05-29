@@ -2,6 +2,16 @@
     background-color: rgb(153, 182, 157);
 }
 
+.h-scroll {
+    height: 90vh;
+    position: fixed;
+    overflow-y: scroll;
+}
+
 h1{
     font-size: xx-large;
+}
+
+row{
+    position: fixed;
 }

@@ -1,4 +1,8 @@
 .row{
     padding-top: 80px;
     padding-bottom: 80px;
+    background-image: url("https://img.freepik.com/free-vector/white-abstract-background-paper-style_23-2148399444.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }

@@ -19,6 +19,7 @@ import { lookupLists, lookupListToken } from './providers';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    ScrollingModule
   ],
   providers: [
     { provide: lookupListToken, useValue: lookupLists }
